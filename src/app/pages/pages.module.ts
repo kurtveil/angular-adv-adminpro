@@ -13,6 +13,7 @@ import { PagesComponent } from './pages.component';
 // Modulos
 import { SharedModule } from '../shared/shared.module';
 import { ComponentsModule } from '../components/components.module';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 
@@ -21,7 +22,8 @@ import { ComponentsModule } from '../components/components.module';
     ProgressComponent,
     DashboardComponent,
     Grafica1Component,
-    PagesComponent
+    PagesComponent,
+    AccountSettingsComponent
   ],
   imports: [
     CommonModule,
