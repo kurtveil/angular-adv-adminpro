@@ -23,8 +23,8 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy {
     // });
 
    }
-  ngOnDestroy(): void {
-    this.titleSubs$.unsubscribe();
+  ngOnDestroy() {
+    // this.titleSubs$.unsubscribe();
   }
 
   ngOnInit(): void {

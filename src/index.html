@@ -6,6 +6,8 @@
   <title>AdminPro</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-signin-client_id" content="986753093743-mkaql0umilaheh4uvk0lgvmdht4iakuj.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon.png">
   <!-- Bootstrap Core CSS -->
@@ -14,8 +16,6 @@
   <link href="./assets/css/style.css" rel="stylesheet">
   <!-- You can change the theme colors from here -->
   <link id="theme" rel="stylesheet">
-
-
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
@@ -49,6 +49,29 @@
   <script src="./assets/js/custom.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script>
+    // function onSuccess(googleUser) {
+    //   var id_token = googleUser.getAuthResponse().id_token;
+    //   console.log(id_token);
+    //   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    // }
+    // function onFailure(error) {
+    //   console.log(error);
+    // }
+    // function renderButton() {
+    //   gapi.signin2.render('my-signin2', {
+    //     'scope': 'profile email',
+    //     'width': 240,
+    //     'height': 50,
+    //     'longtitle': true,
+    //     'theme': 'dark',
+    //     'onsuccess': onSuccess,
+    //     'onfailure': onFailure
+    //   });
+    // }
+  </script>
+
+
 </body>
 
 </html>
