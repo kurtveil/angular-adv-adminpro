@@ -9,27 +9,24 @@ import { filter, map } from 'rxjs/operators';
   styles: [
   ]
 })
-export class BreadcrumbsComponent implements OnInit, OnDestroy {
+export class BreadcrumbsComponent implements OnDestroy {
 
   public title: string;
   public titleSubs$: Subscription;
   constructor( private router: Router, private route: ActivatedRoute ) {
 
-    console.log(route.snapshot.children[0].data);
 
-    // this.titleSubs$ = this.getDataRuta().subscribe( ({title}) => {
-    //   this.title = title;
-    //   document.title = `AdminPro - ${ title }`;
-    // });
+    this.titleSubs$ = this.getDataRuta().subscribe( ({title}) => {
+      this.title = title;
+      document.title = `AdminPro - ${ title }`;
+    });
 
    }
   ngOnDestroy() {
-    // this.titleSubs$.unsubscribe();
+    this.titleSubs$.unsubscribe();
   }
 
-  ngOnInit(): void {
-    this.getDataRuta();
-  }
+
 
   getDataRuta(){
 

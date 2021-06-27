@@ -14,7 +14,6 @@ export class Usuario {
   }
 
   get imagenUrl() {
-
     if (!this.img) {
       return `${BASE_URL}/uploads/usuarios/no-image`;
     } else if (this.img.includes('https')){
@@ -24,7 +23,5 @@ export class Usuario {
     } else {
       return `${BASE_URL}/uploads/usuarios/no-image`;
     }
-
-
   }
 }

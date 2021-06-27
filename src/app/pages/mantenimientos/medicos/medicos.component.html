@@ -5,7 +5,7 @@
           <div class="card-body">
             <input type="text"
             class="form-contrl"
-            placeholder="Buscar médico..."/>
+            placeholder="Buscar médico..." #txtTermino (keyup)="buscar(txtTermino.value)"/>
           </div>
       </div>
   </div>
@@ -29,8 +29,27 @@
   <div class="col-12">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Medicos</h4>
-            <h6 class="card-subtitle">Medicos Registrados en la aplicación</h6>
+
+          <div class="row">
+            <div class="col-8">
+              <h4 class="card-title">Medicos {{medicos.length}}</h4>
+              <h6 class="card-subtitle">Medicos registrados en la aplicación</h6>
+            </div>
+
+
+            <div class="col">
+              <div class="text-right">
+                <a class="btn btn-primary"
+                routerLink="/dashboard/medico/nuevo" >
+                  <em class="fa fa-hospital-o"></em>
+                  Crear Medico
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
             <div class="table-responsive">
                 <table aria-describedby="table for medicos" class="table table-bordered">
                     <thead>
@@ -54,12 +73,16 @@
                           </td>
 
                             <td class="text-nowrap text-center">
-                                <a [routerLink]="['medico', medico_id]"
+                                <a [routerLink]="['/dashboard/medico', medico._id]"
                                  data-toggl e="tooltip"
                                  data-original-title="Editar">
                                    <em class="fa fa-pencil text-inverse m-r-10"></em>
                                  </a>
-                                <a href="#" data-toggle="tooltip" data-original-title="Borrar">
+                                <a
+                                class="cursor"
+                                data-toggle="tooltip"
+                                data-original-title="Borrar"
+                                (click)="borrarMedico(medico)" >
                                    <em class="fa fa-close text-danger"></em>
                                   </a>
                             </td>
