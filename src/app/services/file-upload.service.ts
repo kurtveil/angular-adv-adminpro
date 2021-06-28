@@ -29,13 +29,11 @@ export class FileUploadService {
         },
         body: formData
       });
-      console.log(resp);
 
       const data = await resp.json();
       if (data.ok) {
         return data.nombreArchivo;
       } else {
-        console.log(data);
         return false;
 
       }
@@ -43,7 +41,6 @@ export class FileUploadService {
       return 'nombre de la imagen';
 
     } catch (error) {
-      console.log(error);
       return false;
 
     }

@@ -49,7 +49,6 @@ export class ModalImagenComponent implements OnInit {
       this.modalImagenService.newImage.emit(img);
       this.cerrarModal();
     }, (err) => {
-      console.log(err);
       Swal.fire('Error', err.error.msg, 'error');
     });
   }

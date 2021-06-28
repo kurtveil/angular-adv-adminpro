@@ -47,9 +47,11 @@
         <!-- ============================================================== -->
         <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark"
             href="javascript:void(0)"><em class="ti-search"></em></a>
-          <form class="app-search">
-            <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><em
-                class="ti-close"></em></a>
+          <form class="app-search" (ngSubmit)="buscar(txtTermino.value)" >
+            <input type="text"   class="form-control" placeholder="Buscar..." #txtTermino>
+            <a class="srh-btn">
+              <em class="ti-close"></em>
+            </a>
           </form>
         </li>
         <!-- ============================================================== -->

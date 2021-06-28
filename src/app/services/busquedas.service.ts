@@ -42,11 +42,15 @@ export class BusquedasService {
     return resultados;
   }
 
+  busquedaGlobal(termino: string){
+    const url = `${ BASE_URL }/todo/${termino}`;
+    return this.http.get(url, this.headers);
+  }
+
   buscar(
     tipo: 'usuarios' | 'medicos' | 'hospitales',
     termino: string
   ){
-    debugger
     const url = `${ BASE_URL }/todo/coleccion/${ tipo }/${termino}`;
     return this.http.get<any[]>(url, this.headers)
       .pipe(

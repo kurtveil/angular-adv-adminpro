@@ -69,7 +69,6 @@ export class HospitalesComponent implements OnInit, OnDestroy {
     });
     if (value.trim().length > 0) {
       this.hospitalService.crearHospital(value).subscribe(( res: any ) => {
-        console.log(res);
         this.hospitales.push(res.hospital);
       });
     }
@@ -80,8 +79,8 @@ export class HospitalesComponent implements OnInit, OnDestroy {
   }
 
   buscar(termino: string){
-    debugger
-    if(termino.length === 0){
+
+    if (termino.length === 0) {
       return this.cargarHospital();
     }
     this.busquedaService.buscar('hospitales', termino).subscribe( (res: any) => {

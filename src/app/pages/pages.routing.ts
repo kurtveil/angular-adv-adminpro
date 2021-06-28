@@ -18,6 +18,8 @@ import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component'
 import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
 import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
 import { MedicoComponent } from './mantenimientos/medicos/medico.component';
+import { SearchComponent } from './search/search.component';
+import { AdminGuard } from '../guards/admin.guard';
 
 
 const routes: Routes = [
@@ -27,18 +29,21 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', component: DashboardComponent, data: {title: 'Dashboard'} },
-      { path: 'progress', component: ProgressComponent, data: {title: 'ProgressBar'} },
-      { path: 'grafica1', component: Grafica1Component, data: {title: 'Gráfica #1'} },
       { path: 'account-settings', component: AccountSettingsComponent, data: {title: 'Ajustes de cuenta'} },
+      { path: 'grafica1', component: Grafica1Component, data: {title: 'Gráfica #1'} },
+      { path: 'progress', component: ProgressComponent, data: {title: 'ProgressBar'} },
       { path: 'promesas', component: PromesasComponent, data: {title: 'Promesas'} },
-      { path: 'rxjs', component: RxjsComponent, data: {title: 'RxJs'} },
       { path: 'perfil', component: PerfilComponent, data: {title: 'Perfil'} },
+      { path: 'rxjs', component: RxjsComponent, data: {title: 'RxJs'} },
+      { path: 'search/:termino', component: SearchComponent, data: {title: 'Busquedas'} },
 
       // Mantenimientos
-      { path: 'usuarios', component: UsuariosComponent, data: {title: 'Mantenimieto de Usuarios'} },
       { path: 'hospitales', component: HospitalesComponent, data: {title: ' Mantenimieto de Hospitales '} },
       { path: 'medicos', component: MedicosComponent, data: {title: 'Mantenimieto de Medicos'} },
       { path: 'medico/:id', component: MedicoComponent, data: {title: 'Mantenimieto de Medicos'} },
+
+      // Rutas admin
+      { path: 'usuarios', canActivate: [AdminGuard], component: UsuariosComponent, data: {title: 'Mantenimieto de Usuarios'} },
     ]
   },
 

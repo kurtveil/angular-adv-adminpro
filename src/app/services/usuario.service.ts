@@ -51,6 +51,10 @@ export class UsuarioService {
     };
   }
 
+  get role(): 'ADMIN_ROLE' | 'USER_ROLE'{
+    return this.usuario.role;
+  }
+
   googleInit() {
     return new Promise<void>((resolve) => {
       gapi.load('auth2', () => {
@@ -65,6 +69,8 @@ export class UsuarioService {
   }
 
   logout(): void {
+
+    localStorage.removeItem('menu');
     localStorage.removeItem('token');
 
     this.auth2.signOut().then( () => {
@@ -83,7 +89,7 @@ export class UsuarioService {
       map((res: any) => {
         const {email, google, img = '', nombre, role, uid} = res.usuario;
         this.usuario = new Usuario( nombre, email, '', role, google, img, uid     );
-        localStorage.setItem('token', res.token);
+        this.guardarLocalStorage(res.token, res.menu);
         return true;
       }),
 
@@ -96,7 +102,7 @@ export class UsuarioService {
     return this.http.post(`${urlBase}/usuarios`, formData)
       .pipe(
         tap((res: any) => {
-          localStorage.setItem('token', res.token);
+          this.guardarLocalStorage(res.token, res.menu);
         }),
       );
   }
@@ -106,7 +112,6 @@ export class UsuarioService {
       ...data,
       role: this.usuario.role
     };
-
     return this.http.put(`${urlBase}/usuarios/${this.uid}`, data, this.headers);
   }
 
@@ -115,8 +120,7 @@ export class UsuarioService {
       .pipe(
         tap(
           (res: any) => {
-            console.log(res);
-            localStorage.setItem('token', res.token);
+            this.guardarLocalStorage(res.token, res.menu);
           })
       );
   }
@@ -125,8 +129,7 @@ export class UsuarioService {
       .pipe(
         tap(
           (res: any) => {
-            console.log(res);
-            localStorage.setItem('token', res.token);
+            this.guardarLocalStorage(res.token, res.menu);
           })
       );
   }
@@ -135,11 +138,10 @@ export class UsuarioService {
     const url = `${ urlBase }/usuarios?desde=${ desde }`;
     return this.http.get<CargarUsuario>(url, this.headers)
     .pipe(
-      map(res => {
+      map((res: any) => {
         const usuarios = res.usuarios.map(
           user => new Usuario(user.nombre, user.email,
           '', user.role, user.google, user.img, user.uid));
-        console.log(res);
 
         return {
           total: res.total,
@@ -157,6 +159,11 @@ export class UsuarioService {
 
   guardarUsuario(usuario: Usuario){
     return this.http.put(`${urlBase}/usuarios/${usuario.uid}`, usuario, this.headers);
+  }
+
+  guardarLocalStorage(token: string, menu: any){
+    localStorage.setItem('token', token);
+    localStorage.setItem('menu', JSON.stringify(menu));
   }
 
 
