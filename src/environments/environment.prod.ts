@@ -1,5 +1,5 @@
 // todo: cambiar la url de los servicios en prod
 export const environment = {
   production: true,
-  base_url: 'http://localhost:3005/api'
+  base_url: 'https://admipro-backend.herokuapp.com/api'
 };
