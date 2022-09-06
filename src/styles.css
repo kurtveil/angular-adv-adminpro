@@ -47,3 +47,10 @@
 .topbar {
   background-color: yellow;
 }
+.loguitoClass{
+  width: 10vh;
+  height: 7vh;
+}
+.fontStyle{
+  font-family: cursive;
+}
