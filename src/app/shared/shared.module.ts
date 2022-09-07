@@ -30,5 +30,5 @@ import { FooterComponent } from './footer/footer.component';
 
   ]
 })
-export class SharedModule { 
+export class SharedModule {
 }

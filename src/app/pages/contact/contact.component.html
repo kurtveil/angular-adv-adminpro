@@ -1,0 +1,15 @@
+<div class="d-flex">
+  <div class="card m-2" style="width: 18rem;" *ngFor="let item of developers">
+    <img class="card-img-top" [src]="item.picture" alt="Card image cap" class="image-contact">
+    <div class="card-body">
+      <h5 class="card-title">{{item.name}}</h5>
+      <p class="card-text">{{item.description}}.</p>
+
+      <a href="{{item.linkWhatsapp}}" target="_blank">
+        <i class="fa fa-whatsapp cursorPointer" >
+        </i>
+      </a>
+    </div>
+  </div>
+
+</div>

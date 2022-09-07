@@ -8,14 +8,14 @@
 
         <form class="form p-t-20" (ngSubmit)="actualizarPerfil()" [formGroup]="profileForm" id="profileForm">
           <div class="form-group">
-            <label for="exampleInputuname">User Name</label>
+            <label for="exampleInputuname">Nombre usuario</label>
             <div class="input-group">
               <div class="input-group-addon"><em class="ti-user"></em></div>
               <input type="text" class="form-control" id="exampleInputuname" formControlName="nombre" placeholder="Nombre de usuario">
             </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="exampleInputEmail1">Email</label>
             <div class="input-group">
               <div class="input-group-addon"><em class="ti-email"></em></div>
               <input
@@ -52,8 +52,7 @@
           <img  *ngIf="imgTemp" [src]="imgTemp" alt="" class="img-avatar">
         </div>
 
-
-        <input type="text" type="file" (change)="cambiarImagen($event.target.files[0])">
+        <input id="file-upload" type="text" type="file" (change)="cambiarImagen($event.target.files[0])">
 
         <br>
         <br>

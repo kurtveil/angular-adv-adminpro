@@ -1,0 +1,15 @@
+<table class="table table-light">
+  <thead>
+    <tr>
+
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of stores">
+    <tr>
+      <td class="p-0"><img [src]="item.image" class="img-stores" alt=""></td>
+      <td>{{item.name}}</td>
+      <td><i class="fa fa-heart" aria-hidden="true"></i></td>
+    </tr>
+
+  </tbody>
+</table>

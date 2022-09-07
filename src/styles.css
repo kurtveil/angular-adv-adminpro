@@ -54,3 +54,9 @@
 .fontStyle{
   font-family: cursive;
 }
+.cursorPointer{
+  cursor: pointer;
+}
+.navbar-collapse{
+  background-color: #242a33;
+}
