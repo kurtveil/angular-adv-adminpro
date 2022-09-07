@@ -18,7 +18,7 @@ export class BreadcrumbsComponent implements OnDestroy {
 
     this.titleSubs$ = this.getDataRuta().subscribe( ({title}) => {
       this.title = title;
-      document.title = `AdminPro - ${ title }`;
+      document.title = `Community Food - ${ title }`;
     });
 
    }

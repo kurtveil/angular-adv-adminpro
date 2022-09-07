@@ -23,7 +23,8 @@ import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { MedicoComponent } from './mantenimientos/medicos/medico.component';
 import { SearchComponent } from './search/search.component';
-import { ChildRoutesModule } from './child-routes.module';
+import { ShopListComponent } from './shop-list/shop-list.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -41,7 +42,9 @@ import { ChildRoutesModule } from './child-routes.module';
     HospitalesComponent,
     MedicosComponent,
     MedicoComponent,
-    SearchComponent
+    SearchComponent,
+    ShopListComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,

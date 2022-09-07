@@ -17,6 +17,8 @@ import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
 import { MedicoComponent } from './mantenimientos/medicos/medico.component';
 import { SearchComponent } from './search/search.component';
 import { AdminGuard } from '../guards/admin.guard';
+import { ShopListComponent } from './shop-list/shop-list.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 const childRoutes: Routes  = [
@@ -28,7 +30,8 @@ const childRoutes: Routes  = [
   { path: 'perfil', component: PerfilComponent, data: {title: 'Perfil'} },
   { path: 'rxjs', component: RxjsComponent, data: {title: 'RxJs'} },
   { path: 'search/:termino', component: SearchComponent, data: {title: 'Busquedas'} },
-
+  { path: 'shop-list', component: ShopListComponent, data: {title: 'Listas de tiendas'} },
+  { path: 'contacts', component: ContactComponent, data: {title: 'Contacto'} },
   // Mantenimientos
   { path: 'hospitales', component: HospitalesComponent, data: {title: ' Mantenimieto de Hospitales '} },
   { path: 'medicos', component: MedicosComponent, data: {title: 'Mantenimieto de Medicos'} },
